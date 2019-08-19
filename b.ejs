@@ -1,0 +1,25 @@
+---
+title: 第<%= `00${parseInt(video.seq)}`.slice(-3)%>话
+date: 2016-01-01 00:00:00
+comments: false
+---
+
+## <%= video.title.substring(('第' +`00${parseInt(video.seq)}`.slice(-3) + '话 ').length) %>
+<table>
+    <tr>
+        <td colspan="2">
+            <%= video.description%>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <iframe src="https://player.youku.com/embed/<%= video.encodevid %>"
+                    frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                    style="width: 762px;height: 428px;"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <td>上一话：<a href="../../<%= `00${(Math.floor(parseInt(prevVideo.seq) / 30) - (parseInt(prevVideo.seq) % 30 === 0 ? 1 : 0)) * 30 + 1}`.slice(-3) + '-' + `00${((Math.floor(parseInt(prevVideo.seq) / 30) - (parseInt(prevVideo.seq) % 30 === 0 ? 1 : 0)) + 1) * 30}`.slice(-3) %>/<%= prevVideo.title %>"><%= prevVideo.title%></a></td>
+        <td>下一话：<a href="../../<%= `00${(Math.floor(parseInt(nextVideo.seq) / 30) - (parseInt(nextVideo.seq) % 30 === 0 ? 1 : 0)) * 30 + 1}`.slice(-3) + '-' + `00${((Math.floor(parseInt(nextVideo.seq) / 30) - (parseInt(nextVideo.seq) % 30 === 0 ? 1 : 0)) + 1) * 30}`.slice(-3) %>/<%= nextVideo.title %>"><%= nextVideo.title%></a></td>
+    </tr>
+</table>

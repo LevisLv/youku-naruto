@@ -1,0 +1,12 @@
+---
+title: 第<%= `00${firstSeq}`.slice(-3) %>-<%= `00${firstSeq + 29}`.slice(-3) %>话
+date: 2016-01-01 00:00:00
+comments: false
+---
+
+<table><% videoMap.forEach(function (video, seq) { %><% if(parseInt(seq) >= firstSeq && parseInt(seq) <= firstSeq + 29) { %>
+    <tr>
+        <td style="width: 30%;"><a href="<%= video.title %>/"><%= video.title %><br><img src="https:<%= video.img %>" alt="<%= video.title.split(' ')[0] %>" title="<%= video.title.split(' ')[0] %>"></a></td>
+        <td><%= video.description %></td>
+    </tr><% } %><% }); %>
+</table>
